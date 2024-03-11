@@ -5,9 +5,9 @@
   "main": "dist/app.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -w",
     "start": "node dist/app.js",
-    "dev": "tsc -w && nodemon dist/app.js"
+    "dev": "tsc && nodemon dist/app.js"
   },
   "keywords": [],
   "author": "",
