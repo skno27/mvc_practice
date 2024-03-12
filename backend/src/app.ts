@@ -1,11 +1,21 @@
 import express from "express";
+// import cors from "cors";
 import usersRouter from "./routes/users.js";
+import logging from "./middleware/logging.js";
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
+// app.use(
+//   cors({
+//     origin: ["http://localhost:3000"],
+//     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+//     allowedHeaders: ["Content-Type", "Accept"],
+//   })
+// );
 
+app.use(logging.logRequest);
 app.use("/users", usersRouter);
 
 app.listen(port, () => {
