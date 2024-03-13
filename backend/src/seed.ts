@@ -1,5 +1,6 @@
 import prisma from "./prisma.js";
 
+await prisma.post.deleteMany();
 await prisma.user.deleteMany();
 
 await prisma.user.createMany({
@@ -18,3 +19,8 @@ await prisma.post.createMany({
     { title: "second post title", body: "second post body", userId: user?.id! },
   ],
 });
+
+const users = await prisma.user.findMany();
+console.log(users);
+const posts = await prisma.post.findMany();
+console.log(posts);
